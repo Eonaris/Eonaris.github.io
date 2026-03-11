@@ -1,27 +1,34 @@
 body {
-    background-color: #0a0a0a;
+    background: black;
     color: #00ff88;
     font-family: 'Press Start 2P', monospace;
     margin: 0;
     padding: 40px;
+    overflow: hidden;
 }
 
+/* MATRIX CANVAS */
+
+#matrix {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* TERMINAL CONTENT */
+
 .terminal {
+    position: relative;
     max-width: 800px;
+    text-shadow: 0 0 6px #00ff88;
 }
 
 h1 {
     font-size: 36px;
-    text-shadow: 0 0 10px #00ff88;
 }
 
-h2 {
-    margin-top: 40px;
-}
-
-p {
-    margin: 8px 0;
-}
+/* LINKS */
 
 a {
     color: #00ffaa;
@@ -29,7 +36,7 @@ a {
 }
 
 a:hover {
-    text-shadow: 0 0 8px #00ffaa;
+    text-shadow: 0 0 10px #00ffaa;
 }
 
 ul {
@@ -37,7 +44,7 @@ ul {
     padding: 0;
 }
 
-/* blinking cursor */
+/* BLINKING CURSOR */
 
 .cursor::after {
     content: "_";
@@ -45,7 +52,26 @@ ul {
 }
 
 @keyframes blink {
-    0% {opacity: 1;}
     50% {opacity: 0;}
-    100% {opacity: 1;}
+}
+
+/* CRT SCANLINES */
+
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(0,0,0,0) 0px,
+        rgba(0,0,0,0) 2px,
+        rgba(0,0,0,0.25) 3px
+    );
+
+    z-index: 1;
 }
