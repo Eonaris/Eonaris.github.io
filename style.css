@@ -1,85 +1,142 @@
-/* BODY AND FONT */
 body {
-    background: black;
-    color: #00ff88;
-    font-family: 'Press Start 2P', monospace;
-    margin: 0;
-    padding: 40px;
-    overflow: hidden;
+
+background: black;
+color: #00ff88;
+
+font-family: 'Press Start 2P', monospace;
+
+margin: 0;
+padding: 40px;
+
+overflow: hidden;
+
 }
 
-/* MATRIX CANVAS */
+/* MATRIX */
+
 #matrix {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -2;      /* behind all content */
-    opacity: 0.15;    /* subtle effect */
+
+position: fixed;
+
+top: 0;
+left: 0;
+
+width: 100%;
+height: 100%;
+
+z-index: -2;
+
+opacity: 0.15;
+
 }
 
 /* TERMINAL CONTENT */
+
 .terminal {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    text-shadow: 0 0 6px #00ff88;
+
+position: relative;
+z-index: 2;
+
+max-width: 800px;
+
+text-shadow: 0 0 6px #00ff88;
+
 }
 
 h1 {
-    font-size: 36px;
+
+font-size: 36px;
+
 }
 
 h2 {
-    margin-top: 40px;
+
+margin-top: 40px;
+
 }
 
 p {
-    margin: 8px 0;
-}
 
-/* LINKS */
-a {
-    color: #00ffaa;
-    text-decoration: none;
-}
+margin: 8px 0;
 
-a:hover {
-    text-shadow: 0 0 10px #00ffaa;
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+
+list-style: none;
+padding: 0;
+
 }
 
-/* BLINKING CURSOR */
-.cursor::after {
-    content: "_";
-    animation: blink 1s infinite;
+/* LINKS */
+
+a {
+
+color: #00ffaa;
+text-decoration: none;
+
 }
 
-@keyframes blink {
-    50% { opacity: 0; }
+a:hover {
+
+text-shadow: 0 0 10px #00ffaa;
+
+}
+
+/* BOOT SCREEN */
+
+#boot-screen {
+
+position: fixed;
+
+top: 40px;
+left: 40px;
+
+z-index: 5;
+
+color: #00ff88;
+
+text-shadow: 0 0 6px #00ff88;
+
+}
+
+#boot-screen div {
+
+margin: 8px 0;
+
+}
+
+/* HIDDEN CONTENT */
+
+.hidden {
+
+display: none;
+
 }
 
 /* CRT SCANLINES */
+
 body::after {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
 
-    background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,0) 0px,
-        rgba(0,0,0,0) 2px,
-        rgba(0,0,0,0.25) 3px
-    );
+content: "";
 
-    z-index: 1;
+position: fixed;
+
+top: 0;
+left: 0;
+
+width: 100%;
+height: 100%;
+
+pointer-events: none;
+
+background: repeating-linear-gradient(
+to bottom,
+rgba(0,0,0,0) 0px,
+rgba(0,0,0,0) 2px,
+rgba(0,0,0,0.25) 3px
+);
+
+z-index: 1;
+
 }
