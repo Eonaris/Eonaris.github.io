@@ -1,21 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Eonaris</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- pixel font -->
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-
 <body>
 
 <canvas id="matrix"></canvas>
 
-<div class="terminal">
+<div id="boot-screen"></div>
 
-<h1 class="cursor">Eonaris</h1>
+<div class="terminal hidden" id="main-site">
+
+<h1>Eonaris</h1>
 
 <p>Computer Science student</p>
 <p>Programming | Game Development | Cybersecurity</p>
@@ -25,7 +16,7 @@
 <h2>Projects</h2>
 
 <ul>
-<li><a href="https://github.com/Eonaris/school-projects">> School Projects</a></li>
+<li><a href="#">> School Projects</a></li>
 </ul>
 
 <br>
@@ -39,6 +30,6 @@
 </div>
 
 <script src="matrix.js"></script>
+<script src="boot.js"></script>
 
 </body>
-</html>
