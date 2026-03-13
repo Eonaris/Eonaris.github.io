@@ -2,6 +2,7 @@ const bootScreen = document.getElementById("boot-screen");
 const mainSite = document.getElementById("main-site");
 
 const bootLines = [
+
 "Booting system...",
 "Loading modules...",
 "Initializing interface...",
@@ -10,28 +11,45 @@ const bootLines = [
 "Access granted.",
 "",
 "Welcome, Eonaris."
+
 ];
 
-let index = 0;
+let lineIndex = 0;
 
-function showNextLine(){
+function typeLine(text, i = 0){
 
-if(index < bootLines.length){
+if(i < text.length){
+
+bootScreen.lastChild.textContent += text.charAt(i);
+
+setTimeout(() => typeLine(text, i + 1), 30);
+
+}else{
+
+setTimeout(nextLine, 400);
+
+}
+
+}
+
+function nextLine(){
+
+if(lineIndex < bootLines.length){
 
 const line = document.createElement("div");
-line.textContent = bootLines[index];
 
 bootScreen.appendChild(line);
 
-index++;
+typeLine(bootLines[lineIndex]);
 
-setTimeout(showNextLine, 500);
+lineIndex++;
 
 }else{
 
 setTimeout(() => {
 
 bootScreen.style.display = "none";
+
 mainSite.classList.remove("hidden");
 
 }, 800);
@@ -40,4 +58,4 @@ mainSite.classList.remove("hidden");
 
 }
 
-showNextLine();
+nextLine();
